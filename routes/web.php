@@ -35,6 +35,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//Route::middleware(['auth', 'admin'])->group(function () {
+//    Route::get('/alunos', 'AlunoController@index')->name('alunos.index');
+//    Route::get('/alunos/create', 'AlunoController@create')->name('alunos.create');
+//    Route::post('/alunos', 'AlunoController@store')->name('alunos.store');
+//    Route::get('/alunos/{aluno}', 'AlunoController@show')->name('alunos.show');
+//    Route::get('/alunos/{aluno}/edit', 'AlunoController@edit')->name('alunos.edit');
+//    Route::put('/alunos/{aluno}', 'AlunoController@update')->name('alunos.update');
+//    Route::delete('/alunos/{aluno}', 'AlunoController@destroy')->name('alunos.destroy');
+//});
+
 require __DIR__.'/auth.php';
 
 Auth::routes();
