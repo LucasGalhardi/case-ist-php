@@ -1,7 +1,4 @@
-# Created by https://www.toptal.com/developers/gitignore/api/phpstorm,laravel,phpunit,phpstorm+all
-# Edit at https://www.toptal.com/developers/gitignore?templates=phpstorm,laravel,phpunit,phpstorm+all
 
-### Laravel ###
 /vendor/
 node_modules/
 npm-debug.log
@@ -18,13 +15,6 @@ public/hot
 # Laravel 5 & Lumen specific with changed public path
 public_html/storage
 public_html/hot
-
-storage/*.key
-.env
-Homestead.yaml
-Homestead.json
-/.vagrant
-.phpunit.result.cache
 
 ### PhpStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
