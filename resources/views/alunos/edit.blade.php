@@ -1,6 +1,5 @@
 {{-- resources/views/alunos/edit.blade.php --}}
 @extends('layouts.app')
-{{--@include('alunos.form', ['aluno' => $aluno])--}}
 
 @section('content')
     <div class="container">

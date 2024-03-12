@@ -45,6 +45,8 @@ Route::get('/alunos/{aluno}/edit', [AlunoController::class, 'edit'])->name('alun
 Route::put('/alunos/{aluno}', [AlunoController::class, 'update'])->name('alunos.update');
 Route::delete('/alunos/{aluno}', [AlunoController::class, 'destroy'])->name('alunos.destroy');
 
+// ACABEI NÃO CONSEGUINDO HABILITAR O MIDDLEWARE DE AUTENTICAÇÃO DO ADMINISTRADOR
+// MAS, SE CONSEGUISSE, INCLUIRIA AQUI
 //Route::middleware(['auth', 'admin'])->group(function () {
 //    Route::get('/alunos', 'AlunoController@index')->name('alunos.index');
 //    Route::get('/alunos/create', 'AlunoController@create')->name('alunos.create');

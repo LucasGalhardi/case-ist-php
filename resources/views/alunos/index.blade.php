@@ -3,8 +3,21 @@
 
 @section('content')
     <div class="container">
+
+        @if(session('success'))
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <h1>Alunos</h1>
+
         <a href="{{ route('alunos.create') }}" class="btn btn-primary">Adicionar Aluno</a>
+
         <div class="mt-3">
             <form action="{{ route('alunos.index') }}" method="GET" class="form-inline">
                 <div class="form-group">
@@ -13,6 +26,7 @@
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>
         </div>
+
         <table class="table mt-3">
             <thead>
             <tr>
@@ -41,6 +55,7 @@
             @endforeach
             </tbody>
         </table>
+
         {{ $alunos->links() }}
     </div>
 @endsection

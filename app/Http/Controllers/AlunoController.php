@@ -20,12 +20,9 @@ class AlunoController extends Controller
 
     public function create()
     {
-        $turmas = Turma::all(); // Assume que você já tem isso
+        $turmas = Turma::all();
+        $aluno = new \App\Models\Aluno();
 
-        // Inicializa um novo objeto Aluno ou passa uma variável que a view espera
-        $aluno = new \App\Models\Aluno(); // Certifique-se de ter importado o modelo Aluno
-
-        // Passa tanto $turmas quanto $aluno para a view
         return view('alunos.create', compact('turmas', 'aluno'));
     }
 
@@ -64,8 +61,8 @@ class AlunoController extends Controller
 
     public function edit($id)
     {
-        $aluno = Aluno::findOrFail($id); // Busca o aluno ou falha se não encontrar
-        $turmas = Turma::all(); // Busca todas as turmas para o select
+        $aluno = Aluno::findOrFail($id);
+        $turmas = Turma::all();
 
         return view('alunos.edit', compact('aluno', 'turmas'));
     }
@@ -74,9 +71,9 @@ class AlunoController extends Controller
     {
         $request->validate([
             'nome' => 'required|max:255',
-            'email' => 'required|email|unique:alunos,email,' . $id, // Exclui o próprio aluno da verificação de unicidade
+            'email' => 'required|email|unique:alunos,email,' . $id,
             'turma_id' => 'required|exists:turmas,id',
-            'imagem' => 'nullable|image|max:10240', // Opcional, validação para uma nova imagem, se fornecida
+            'imagem' => 'nullable|image|max:10240',
         ]);
 
         $aluno = Aluno::findOrFail($id);
@@ -85,9 +82,7 @@ class AlunoController extends Controller
         $aluno->email = $request->email;
         $aluno->turma_id = $request->turma_id;
 
-        // Atualização condicional da imagem, se uma nova foi fornecida
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-            // Aqui você pode querer excluir a imagem antiga, dependendo do seu caso de uso
             $path = $request->imagem->store('alunos', 'public');
             $aluno->imagem = $path;
         }
@@ -96,6 +91,5 @@ class AlunoController extends Controller
 
         return redirect()->route('alunos.index')->with('success', 'Aluno atualizado com sucesso!');
     }
-
 
 }
