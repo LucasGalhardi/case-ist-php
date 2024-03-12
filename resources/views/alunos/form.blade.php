@@ -20,6 +20,11 @@
     </div>
 
     <div class="form-group">
+        <label for="sobrenome">Sobrenome:</label>
+        <input type="text" class="form-control" id="sobrenome" name="sobrenome" value="{{ old('sobrenome', $aluno->sobrenome) }}" required maxlength="100">
+    </div>
+
+    <div class="form-group">
         <label for="email">E-mail:</label>
         <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $aluno->email) }}" required>
     </div>

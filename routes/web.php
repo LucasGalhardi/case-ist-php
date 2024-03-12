@@ -3,7 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use App\Http\Controllers\AlunoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/alunos', [AlunoController::class, 'index'])->name('alunos.index');
+Route::get('/alunos/create', [AlunoController::class, 'create'])->name('alunos.create');
+Route::post('/alunos', [AlunoController::class, 'store'])->name('alunos.store');
+Route::get('/alunos/{aluno}', [AlunoController::class, 'show'])->name('alunos.show');
+Route::get('/alunos/{aluno}/edit', [AlunoController::class, 'edit'])->name('alunos.edit');
+Route::put('/alunos/{aluno}', [AlunoController::class, 'update'])->name('alunos.update');
+Route::delete('/alunos/{aluno}', [AlunoController::class, 'destroy'])->name('alunos.destroy');
 
 //Route::middleware(['auth', 'admin'])->group(function () {
 //    Route::get('/alunos', 'AlunoController@index')->name('alunos.index');

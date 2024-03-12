@@ -1,6 +1,6 @@
 {{-- resources/views/alunos/edit.blade.php --}}
 @extends('layouts.app')
-@include('alunos.form', ['aluno' => $aluno])
+{{--@include('alunos.form', ['aluno' => $aluno])--}}
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
         <form action="{{ route('alunos.update', $aluno->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            @include('alunos.form')
+            @include('alunos.form', ['aluno' => $aluno])
         </form>
     </div>
 @endsection
